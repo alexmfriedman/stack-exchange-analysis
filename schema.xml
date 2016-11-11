@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: https://ondras.zarovi.cz/sql/demo/ -->
+<sql>
+<datatypes db="mysql">
+	<group label="Numeric" color="rgb(238,238,170)">
+		<type label="Integer" length="0" sql="INTEGER" quote=""/>
+	 	<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+	 	<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+	 	<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+	 	<type label="INT" length="0" sql="INT" quote=""/>
+		<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+		<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+	</group>
+
+	<group label="Character" color="rgb(255,200,200)">
+		<type label="Char" length="1" sql="CHAR" quote="'"/>
+		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+		<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+		<type label="Binary" length="1" sql="BINARY" quote="'"/>
+		<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+		<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+	</group>
+
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+		<type label="Date" length="0" sql="DATE" quote="'"/>
+		<type label="Time" length="0" sql="TIME" quote="'"/>
+		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+		<type label="Year" length="0" sql="YEAR" quote=""/>
+		<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+	</group>
+	
+	<group label="Miscellaneous" color="rgb(200,200,255)">
+		<type label="ENUM" length="1" sql="ENUM" quote=""/>
+		<type label="SET" length="1" sql="SET" quote=""/>
+		<type label="Bit" length="0" sql="bit" quote=""/>
+	</group>
+</datatypes><table x="235" y="295" name="users">
+<row name="Id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Reputation" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="CreationDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="DisplayName" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="LastAccessDate" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>'NULL'</default></row>
+<row name="Views" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<row name="WebsiteUrl" null="1" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>NULL</default></row>
+<row name="Location" null="1" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>NULL</default></row>
+<row name="AboutMe" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="Age" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="UpVotes" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="DownVotes" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="ProfileImageUrl" null="1" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>NULL</default></row>
+<row name="AccountId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>Id</part>
+</key>
+</table>
+<table x="755" y="245" name="posts">
+<row name="Id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="OwnerUserId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="users" row="Id" />
+</row>
+<row name="AcceptedAnswerId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="posts" row="Id" />
+</row>
+<row name="ParentId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="posts" row="Id" />
+</row>
+<row name="PostTypeId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Score" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="ViewCount" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Body" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="LastEditorUserId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="Id" />
+</row>
+<row name="LastEditDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="LastActivityDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="Title" null="1" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>NULL</default></row>
+<row name="Tags" null="1" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>NULL</default></row>
+<row name="AnswerCount" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="CommentCount" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="FavoriteCount" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="CreationDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="ClosedDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>Id</part>
+</key>
+</table>
+<table x="780" y="70" name="votes">
+<row name="Id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="PostId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="posts" row="Id" />
+</row>
+<row name="VoteTypeId" null="1" autoincrement="0">
+<datatype>SMALLINT</datatype>
+<default>NULL</default></row>
+<row name="CreationDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="UserId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="Id" />
+</row>
+<key type="PRIMARY" name="">
+<part>Id</part>
+</key>
+</table>
+<table x="1040" y="315" name="tags">
+<row name="Id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="TagName" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="Count" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="ExcerptPostId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="posts" row="Id" />
+</row>
+<row name="WikiPostId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="posts" row="Id" />
+</row>
+<key type="PRIMARY" name="">
+<part>Id</part>
+</key>
+</table>
+<table x="250" y="70" name="badges">
+<row name="Id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="UserId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="Id" />
+</row>
+<row name="Name" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="Date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="Class" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="TagBased" null="1" autoincrement="0">
+<datatype>VARCHAR(8)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>Id</part>
+</key>
+</table>
+<table x="475" y="50" name="comments">
+<row name="Id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="PostId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="posts" row="Id" />
+</row>
+<row name="Score" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Text" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="CreationDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="UserId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="Id" />
+</row>
+<key type="PRIMARY" name="">
+<part>Id</part>
+</key>
+</table>
+<table x="495" y="480" name="post_history">
+<row name="Id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="PostHistoryTypeId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="PostId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="posts" row="Id" />
+</row>
+<row name="RevisionGUID" null="1" autoincrement="0">
+<datatype>VARCHAR(36)</datatype>
+<default>NULL</default></row>
+<row name="CreationDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="UserId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="Id" />
+</row>
+<row name="Text" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="Comment" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>Id</part>
+</key>
+</table>
+<table x="1045" y="125" name="post_links">
+<row name="Id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="CreationDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="PostId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="posts" row="Id" />
+</row>
+<row name="RelatedPostId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="posts" row="Id" />
+</row>
+<row name="LinkTypeId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>Id</part>
+</key>
+</table>
+</sql>
+
