@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="245" y="275" name="users">
+</datatypes><table x="235" y="295" name="users">
 <row name="Id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 </row>
@@ -74,8 +74,11 @@
 <row name="DownVotes" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="EmailHash" null="1" autoincrement="0">
-<datatype>VARCHAR(32)</datatype>
+<row name="ProfileImageUrl" null="1" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>NULL</default></row>
+<row name="AccountId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>Id</part>
@@ -137,14 +140,14 @@
 <row name="CreationDate" null="1" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>NULL</default></row>
-<row name="OwnerDisplayName" null="1" autoincrement="0">
-<datatype>VARCHAR(256)</datatype>
+<row name="ClosedDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>Id</part>
 </key>
 </table>
-<table x="795" y="100" name="votes">
+<table x="780" y="70" name="votes">
 <row name="Id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -158,6 +161,10 @@
 <row name="CreationDate" null="1" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>NULL</default></row>
+<row name="UserId" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="Id" />
+</row>
 <key type="PRIMARY" name="">
 <part>Id</part>
 </key>
@@ -184,7 +191,7 @@
 <part>Id</part>
 </key>
 </table>
-<table x="280" y="130" name="badges">
+<table x="250" y="70" name="badges">
 <row name="Id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -198,11 +205,17 @@
 <row name="Date" null="1" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>NULL</default></row>
+<row name="Class" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="TagBased" null="1" autoincrement="0">
+<datatype>VARCHAR(8)</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>Id</part>
 </key>
 </table>
-<table x="525" y="120" name="comments">
+<table x="475" y="50" name="comments">
 <row name="Id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -227,7 +240,7 @@
 <part>Id</part>
 </key>
 </table>
-<table x="505" y="515" name="post_history">
+<table x="495" y="480" name="post_history">
 <row name="Id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -251,11 +264,14 @@
 <row name="Text" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
+<row name="Comment" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>Id</part>
 </key>
 </table>
-<table x="1040" y="145" name="post_links">
+<table x="1045" y="125" name="post_links">
 <row name="Id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
