@@ -1,3 +1,5 @@
 .ipynb_checkpoints/
 stats/
 *.db
+arduino/
+stats.stackexchange.com*
