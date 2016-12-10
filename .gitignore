@@ -1,5 +1,3 @@
 .ipynb_checkpoints/
-stats.stackexchange.com/
-stats.stackexchange.com.7z
-arduino.db
-arduino/
+stats/
+*.db
