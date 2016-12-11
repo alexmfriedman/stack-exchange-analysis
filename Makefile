@@ -1,2 +1,2 @@
 all: 
-	tar -cvf handin.tar *.ipynb
+	tar -cvf handin.tar *.ipynb README.md
