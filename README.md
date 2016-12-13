@@ -1,4 +1,4 @@
-# stack-overflow-analysis
+# Stack Exchange Analysis
 
 Alex Friedman (amfriedm) and Sushain Cherivirala (scherivi)
 
@@ -7,6 +7,7 @@ The code can be run by cloning the git repository and installing 7z as well. For
 ```
 git clone git@github.com:alexmfriedman/stack-exchange-analysis.git
 sudo apt-get install 7z
+cd stack-exchange-analysis/
 jupyter notebook
 ```
 
